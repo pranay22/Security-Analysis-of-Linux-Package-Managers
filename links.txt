@@ -1,0 +1,1 @@
+https://securityblog.redhat.com/2014/12/10/analysis-of-the-cve-2013-6435-flaw-in-rpm/
