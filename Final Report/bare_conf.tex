@@ -212,7 +212,7 @@
 
 % Alternate frmat - looks better
 
-\author{\IEEEauthorblockN{Saad Quassil Allak\IEEEauthorrefmark{1},
+\author{\IEEEauthorblockN{Saad Ouassil Allak\IEEEauthorrefmark{1},
 and
 Pranay Sarkar\IEEEauthorrefmark{2}} \\
 \IEEEauthorblockA{Fachbereich Informatik\\
@@ -220,7 +220,7 @@ Pranay Sarkar\IEEEauthorrefmark{2}} \\
 	Hochschulstra{\ss}e 10 , 64289 Darmstadt\\
 	\IEEEauthorrefmark{1}
 	Email: saadouassil.allak@stud.tu-darmstadt.de \\
-	Matriculation Number: --} \\
+	Matriculation Number: 2945765} \\
 \IEEEauthorblockA{\IEEEauthorrefmark{2}
 	Email: pranay.sarkar@stud.tu-darmstadt.de \\
 	Marticulation Number: 2337328
@@ -266,10 +266,38 @@ Vulnerabilities are not always exploitable in real world. By looking into securi
 \newline Remaining part of the paper is organized as follows. In section 2, system arcitecture of package managers are described. Section 3 consist threat modeling, which includes types of attacks and different approaches to threat modeling. Section 4 describes our approach to threat modelling and application of \stride. Result of our threat modelling and comparison of effects are described in Section 5.
 \section{System Architecture of Package Managers}
 \label{sec:sys-architecture}
-System architecture description of package managers.
+System architecture of package managers is shown in \emph{Figure 1}. 
 
-\section{Threat Modelling}
-\label{sec:threat-modelling}
+\begin{figure*}[!t]
+	\includegraphics[width=\textwidth]{figures/package_manager_archi}
+	\caption[Block diagram for motivation example system]{\label{f:sysarchtect}System architecture for package manager}
+\end{figure*}
+
+From the system architecture diagram of package managers it can be seen that security offered by package managers varies depending on how signatures are used for data protection. There are advantages and disadvantages of signatures in different data items. They are described in the following subsections.
+
+Analyze model window as shown in \emph{Figure 3} analyzes the given model and classifies the possible threat that can make the system vulnerable to possible attacks.
+
+
+\subsection{Package Managers with no security}
+\label{subsec:pcage-man-no-sec}
+There are some package manager that do not provide any security e.g. Slaktool. They do not sign any packages or package metadata or root metadata or root metadata file. So, any attacker that control a mirror can launch arbitrary package attack just by responding to client requests with malicious software.
+
+\subsection{Package Signatures}
+\label{subsec:pkg-sign}
+Package managers like YUM only relies on signatures embedded in package for providing security. Package metadata or root metadata are not protected. So the attacker can launch replay or freeze attack and the client will install vulnerable packages. There is another problem.  YUM does not verify package metadata that they initially received for dependency resolution. As a result attacker can forge package metadata and launch extraneous dependencies attack. Endless data attack is also applicable to this kind of package managers.
+
+\subsection{Package Metadata Signatures}
+\label{subsec:pkg-metadata-sign}
+Some package managers like \emph{Stork} can use signatures on package metadata. They can create a single file that contains time-stamp and securely hash the package metadata for all the packages that user trusts. Delegation of trust is also possible to single 'distribution' user.
+This kind of package managers are not vulnerable to extraneous dependency attack as the signatures protect the package metadata. But it is still vulnerable to endless data attacks. Attacker can also successfully launch freeze attack against this kind of package managers.
+
+\subsection{Root Metadata Signatures}
+\label{subsec:root-metadata-sign}
+Popular package managers like APT, YaST, APT-RPM use root metadata signatures. They can also support package signatures, but that feature is optional and not widely used in practice. Package metadata is stored in compress files and after securing all those file, hashes are stored in root metadata file. As root metadata is also protected with signature, package metadata is also protected from tampering. It prevents extraneous dependencies attacks. Another advantage of using root metadata is, it prevents a mirror from hosting more than one version of package from the main repository at the same time. Attacker have to choose time-period of main repository and it has to provide exactly same files when launching the replay attack. Unfortunately these package managers do not check timestamps. So, replay attack and endless data attacks are still possible.
+
+
+\section{Threat Modeling}
+\label{sec:threat-modeling}
 Threat model involves attacker who can respond to legitimate requests made by a package manager. One example could be man-in-the-middle \emph{(MIM)}, where the attacker have tricked the client into contacting the wrong compromised server. It can also be a case where user have gained control over an official package distribution mirror. Threat model is described as follows:
 
 \begin{itemize}
@@ -287,15 +315,20 @@ Threat model involves attacker who can respond to legitimate requests made by a 
 \label{subsec:attack-types}
 Based on the above mentioned threat model, there can be many type of attacks which can be done on a client. All of the attacks can be used either to crash or control client's computer. Although the impact can vary for different types of attack, all of the attacks can be effective on some package managers:
 \begin{itemize}
-	\item \emph{Arbitrary Package:} Attacker provides a different package created by them in place of the real package to the user who wants to install it.
+	\item \emph{Arbitrary Package:} Attacker provides a different package created by them in place of the real package to the user who wants to install it. \\
+	\textbf{Threats:} Tampering.
 	
-	\item \emph{Reply Attack:} Attacker replays older versions of request package which are correctly signed but contains security vulnerability. Attacker can then exploit the already existing vulnerability. It should be noted that package managers will never downgrade any existing package. So reply attack will not work while updating existing package. But it will work only when installing new package.
+	\item \emph{Reply Attack:} Attacker replays older versions of request package which are correctly signed but contains security vulnerability. Attacker can then exploit the already existing vulnerability. It should be noted that package managers will never downgrade any existing package. So reply attack will not work while updating existing package. But it will work only when installing new package. \\
+	\textbf{Threats:} Tampering, threats contained in previous release of package.
 	
-	\item \emph{Freeze Attack:} Attacker freezes the information that the client sees to the current point of time, so that client can not see any more updates. It works in the similar way how freeze attack, where wrong metadata is provided to clients. The main goal of this attack is to compromise clients which already have installed vulnerable packages. This attack can also be used to prevent updates in addition of installing a out of date package.
+	\item \emph{Freeze Attack:} Attacker freezes the information that the client sees to the current point of time, so that client can not see any more updates. It works in the similar way how freeze attack, where wrong metadata is provided to clients. The main goal of this attack is to compromise clients which already have installed vulnerable packages. This attack can also be used to prevent updates in addition of installing a out of date package. \\
+	\textbf{Threats:} Tampering and threads contained previous release of package.
 	
-	\item \emph{Endless Data:} Attacker returns endless stream of data in response to any download request from an already compromised mirror. This might result in package manager filling up the disk or memory on the client machine and thereby crushing it.
+	\item \emph{Endless Data:} Attacker returns endless stream of data in response to any download request from an already compromised mirror. This might result in package manager filling up the disk or memory on the client machine and thereby crushing it. \\
+	\textbf{Threats:} Denial of Service (DoS) attack
 	
-	\item \emph{Extraneous Dependencies:} Attacker overwrites package metadata so that addition packages have to be installed as a dependency along with the original package that the user want to install. If the package that is installed as a dependency have security vulnerability, it allows the attacker to compromise the system of the user. For example, if metadata of a package $foo$ states that it depends on another package $bar$, it will cause the package $bar$ to be installed even if it is not desired or needed. And, if this $bar$ is vulnerable, the whole system can be compromised.
+	\item \emph{Extraneous Dependencies:} Attacker overwrites package metadata so that addition packages have to be installed as a dependency along with the original package that the user want to install. If the package that is installed as a dependency have security vulnerability, it allows the attacker to compromise the system of the user. For example, if metadata of a package $foo$ states that it depends on another package $bar$, it will cause the package $bar$ to be installed even if it is not desired or needed. And, if this $bar$ is vulnerable, the whole system can be compromised. \\
+	\textbf{Threats:} Tampering
 \end{itemize}
 
 \subsection{Approaches to Threat Modelling}
@@ -320,7 +353,28 @@ We have mainly concentrated on threat modeling in software development. For that
 
 We have described and analyzed all steps in threat model using \stride. We give them as an input to \stride and \stride analyzes the model, ad generates the report automatically. We can also give the system model as n input to \stride. 
 
-As shown in \emph{Figure 2}
+As shown in \emph{Figure 2} 'Main Administrator' can ada a package from main repository. It belongs to same trust domain. User can download package from Main repository or official mirror repository using package manager. Official main server is in the same trust boundary as of system administrator and thus it can be fully trusted.
+
+\subsection{Threat Model Report}
+\stride generates threat model report from the given input model. The report for package managers is as follows:
+
+\subsubsection{Multi-Process}
+This contains threats against setting up official mirror server. Main threat is tampering. It involves modifying integrity of packages.
+It can be mitigated by verifying package integrity. Continuous verification bs system administrator also helps. 
+
+\subsubsection{Data Flows}
+This contains threats against downloading from mirror repository. There are two kinds of available threats: Tempering and Denial of Service. DoS can happen when mirror server can redirect download to another server cause congestion to the other server. This can be mitigated by verifying the size of packages in manager level. 
+
+Tampering can happen when there is a corrupt official mirror. It depends on the type f verification that package manager does. Verifying the integrity of package manager helps a lot.
+
+\subsubsection{Data Stores}
+It contains threats against mirror repository. Possible problems can arise by tampering, Repudiation, Information disclosure and denial of service attacks.
+
+Data tampering can happen when any compromised mirror repository have some corrupted or maliciously changed data. It can be solved ba periodical checking.
+
+Repudiation happens if there is some old or compromised mirror who sends vulnerable packages to the system. Solved by periodical synchronization between main repository and mirror repositories.
+Denial of service attack happens when there is endless data attack.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.0\linewidth]{figures/model}
@@ -430,11 +484,17 @@ We have analyzed different linus distributions and the security mechanisms they 
 \end{itemize}
 \section{Related Works}
 \label{sec:related-work}
-Describe pip, npm and Google play store here.
+There are some other package managers apart from linux package managers. We have also looked into them to see how they works.
+\begin{itemize}
+	\item \emph{pip: The python package manger:} It checks only the dependencies between the package that is about to be installed and already installed packages. Connection is not encrypted between client and the server. Advantage is there is no mirror. So, the attacker had to person man-in-the-middle (MIM) attack to send vulnerable packages to the client.
+	\item \emph{npm: The NodeJS package manager:} It works almost same as pip, the package manager for python. There are no mirrors and there iy only official repository to download from. All the dependencies are checked before accepting any package into npm library. If the server goes down for some reason such as denial of service attack, users just can not install anything.
+	\item \emph{Android app packaging at Google Play store:} Android app uses specific permission manager for all apps. In $persistance.xml$ the ap developer have to write all dependencies and all the possible permissions that the app can take during it's execution. Google play store provides centralized downloading for apps. The connection between play store services and the user is encrypted. So, freeze or reply attack will not work. Man-in-the-middle (MIM) attack may succeed, but eve if the attacker tricks the user into downloading some wrong app, while installing the app the Android permission manager will show all the necessary permission. If the user see there are some difference from what it should be or if there is any suspicious permission, she might not install it. Which solves the problem. 
+\end{itemize}
+
 
 \section{Conclusion}
 \label{sec:conclusion}
-The conclusion goes here.
+Our work identifies different security issues in some of the most popular Linux package managers that is sued today. By using threat modeling we show all possible points where attack can happen. \stride also helps us to understand in details all the possible attacks without even executing the system in real-time. And it can also be seen that some security mechanisms used by distributions helps us to prevent attacks and there are some of them which increases the chance of attack by decreasing the security of the whole system.
 
 
 
