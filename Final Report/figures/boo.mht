@@ -1,0 +1,738 @@
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_60d87e53-da2a-45a9-9c45-44c3bd2f0a51";
+	type="text/html"
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_60d87e53-da2a-45a9-9c45-44c3bd2f0a51
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: 8bit
+Content-Location: Foobar
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/TR/xhtml1/strict" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <title>Threat Model Report</title>
+    <style type="text/css">
+          /* HTML Elements Start*/
+          body, table, td, th
+          {
+          font-family: Segoe UI, tahoma, verdana, arial, helvetica, sans-serif;
+          background: white;
+          font-size: 9pt;
+          }
+
+          table
+          {
+          width: 100%;
+          border-collapse:collapse
+          }
+
+          th
+          {
+          vertical-align: top;
+          padding: 3px;
+          border-bottom: solid 1px #80a0c0;
+          font-weight: bold;
+          text-align: left;
+          }
+
+          td
+          {
+          vertical-align: top;
+          padding: 3px;
+          border-bottom: solid 1px #80a0c0;
+          }
+
+          DIV
+          {
+          -moz-box-sizing:border-box;
+          box-sizing:border-box;
+          }
+
+          blockquote
+          {
+          margin: 6px 15px 6px 15px;
+          }
+
+          a, a:visited, a:link
+          {
+          text-decoration: none;
+          color: #BB5503;
+          }
+
+          a:hover
+          {
+          text-decoration: underline;
+          color: #6593CF
+          }
+          /* HTML Elements End */
+
+          /* ID specific classes Start */
+          #reportTitle
+          {
+          font-size: 14pt;
+          width: 100%;
+          text-align: center;
+          padding: 5px 0px 5px 0px;
+          font-weight: bold;
+          border: solid 1px #15428B;
+          color: #15428B;
+          margin-bottom: 15px;
+          }
+
+          #tableOfContents
+          {
+          margin: 0px 30px 15px 30px;
+          width: 100%;
+          }
+
+          #TAMElements
+          {
+          margin-bottom: 15px;
+          }
+          /* ID specific classes End */
+
+          /* General classes start */
+          td.toc
+          {
+          padding: 3px 0px 3px 0px;
+          border-bottom-width: 0px;
+          text-align: center;
+          }
+
+          .sectionTitle
+          {
+          font-size: 12pt;
+          width: 100%;
+          padding: 5px 0px 5px 15px;
+          font-weight: bold;
+          background-color: #294C7A;
+          color: white;
+          margin-top: 15px;
+          }
+
+          .sectionSubTitle
+          {
+          font-size: 11pt;
+          width: 100%;
+          padding: 5px 0px 2px 0px;
+          font-weight: bold;
+          color: #15428B;
+          margin-bottom: 10px;
+          border-bottom: solid 1px #80a0c0;
+          }
+
+          .sectionSubTitle2
+          {
+          font-size: 11pt;
+          font-weight: bold;
+          color: #6593CF;
+          }
+
+          .sectionSubTitle3
+          {
+          font-size: 9pt;
+          font-weight: bold;
+          color: #15428B;
+          }
+          .sectionContent
+          {
+          padding: 10px;
+          border: solid 1px #15428B;
+          margin-bottom: 25px;
+          width: 100%;
+          }
+          /* General classes end */
+
+          /* Utility classes start */
+          .bottomPadding
+          {
+          padding-bottom: 15px;
+          }
+          /* Utility classes end */
+
+          /* Page Specific classes start */
+          td.TMILabel
+          {
+          padding: 10px 10px 10px 0px;
+          width: 20%;
+          font-weight: bold;
+          }
+
+          td.TMIData
+          {
+          padding: 10px 0px 10px 0px;
+          width: 80%;
+          }
+
+          td.TAMType
+          {
+          padding: 3px 10px 3px 0px;
+          width: 30%;
+          }
+
+          td.TAMDescription
+          {
+          padding: 3px 0px 3px 0px;
+          width: 70%;
+          }
+
+          th.TAMType
+          {
+          padding: 3px 10px 3px 0px;
+          width: 30%;
+          }
+
+          th.TAMDescription
+          {
+          padding: 3px 0px 3px 0px;
+          width: 70%;
+          }
+
+          .threatTextType
+          {
+          font-weight: bold;
+          }
+          /* Page Specific classes end */
+        </style>
+  </head>
+  <body lang="EN-US">
+    <div id="reportTitle">
+          Threat Model: </div>
+    <div id="tableOfContents">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td class="toc">
+            <a href="#_Toc31961280">Threat Model Information</a>
+          </td>
+          <td class="toc">
+            <a href="#_Toc31961289">Data Flow Diagrams</a>
+          </td>
+          <td class="toc">
+            <a href="#_Toc31961293">Threats and Mitigations</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="toc">
+            <a href="#_TocCertifications">Certifications</a>
+          </td>
+          <td class="toc">
+            <a href="#_Toc31961283">External Dependencies</a>
+          </td>
+          <td class="toc">
+            <a href="#_Toc31961284">Implementation Assumptions</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="toc">
+            <a href="#_Toc31961285">External Security Notes</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="sectionTitle" id="_Toc31961280">Threat Model Information</div>
+    <div class="sectionContent">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="TMILabel">Component</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Product</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">SourceUrl</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Owner</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Participants</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Reviewers</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Url</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">Summary</td>
+          <td class="TMIData" />
+        </tr>
+        <tr>
+          <td class="TMILabel">History</td>
+          <td class="TMIData" />
+        </tr>
+      </table>
+    </div>
+    <div class="sectionTitle" id="_Toc31961289">Data Flow Diagrams</div>
+    <div class="sectionContent">
+      <div class="sectionSubTitle">Context</div>
+      <div class="bottomPadding">
+        <img src="" alt="Context data flow diagram" />
+      </div>
+    </div>
+    <div class="sectionTitle" id="_Toc31961293">Threats and Mitigations</div>
+    <div class="sectionContent">
+      <div class="sectionSubTitle">Elements</div>
+      <table border="0" cellspacing="0" cellpadding="0" id="TAMElements">
+        <thead>
+          <tr>
+            <th class="TAMType">Element Type</th>
+            <th class="TAMDescription">Description</th>
+          </tr>
+        </thead>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">
+                  ()
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">
+                  ()
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">
+                  ()
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">
+                  (Internal to mirror repository)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">
+                  (Internal to mirror repository)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Download from main repo
+                  (Main repository is a trusted source)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      </td>
+          <td class="TAMDescription">Download from mirror repo </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Flow
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Rsync
+                  (A mirror becomes official only when guidelines are followed )
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Store
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Main 
+Repository
+                  (Only administrator of can access the repository, this makes it safe )
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Data Store
+      </td>
+          <td class="TAMDescription">Mirror Repositoy</td>
+        </tr>
+        <tr>
+          <td class="TAMType">Interactor</td>
+          <td class="TAMDescription">Aministrator</td>
+        </tr>
+        <tr>
+          <td class="TAMType">Interactor
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Main Administrator
+                  (Trusted)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">Interactor
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">User
+                  (Trusted)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">MachineBoundary</td>
+          <td class="TAMDescription">
+          </td>
+        </tr>
+        <tr>
+          <td class="TAMType">MachineBoundary</td>
+          <td class="TAMDescription">
+          </td>
+        </tr>
+        <tr>
+          <td class="TAMType">MachineBoundary</td>
+          <td class="TAMDescription">
+          </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Multi-Process
+      
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Package manager
+                  (within trust boundaries)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">
+        Multi-Process
+      </td>
+          <td class="TAMDescription">Set-up 
+official 
+mirror server</td>
+        </tr>
+        <tr>
+          <td class="TAMType">Process
+					(NotGenerated)
+				</td>
+          <td class="TAMDescription">Add Packacge
+                  (within trusted boundaries)
+                </td>
+        </tr>
+        <tr>
+          <td class="TAMType">TrustBoundary</td>
+          <td class="TAMDescription">
+          </td>
+        </tr>
+      </table>
+      <div class="sectionSubTitle">External Interactors</div>
+      <div class="sectionSubTitle2">
+          Threats against Aministrator</div>
+      <blockquote>
+        <div />
+        <div class="sectionSubTitle3">Spoofing
+      (Threat #78)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+        <div class="sectionSubTitle3">Repudiation
+      (Threat #79)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+      </blockquote>
+      <div class="sectionSubTitle">Multi-Processes</div>
+      <div class="sectionSubTitle2">
+          Threats against Set-up 
+official 
+mirror server</div>
+      <blockquote>
+        <div />
+        <div class="sectionSubTitle3">Tampering
+      (Threat #81)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>Modifying integrity of packages<p />
+          <span class="threatTextType">Mitigation: </span>Verifying package integrity<br xmlns="">Continuous verification by main repository administrator</blockquote>
+      </blockquote>
+      <div class="sectionSubTitle">Data Flows</div>
+      <div class="sectionSubTitle2">
+          Threats against Download from mirror repo </div>
+      <blockquote>
+        <div />
+        <div class="sectionSubTitle3">Tampering
+      (Threat #104)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>Dependes on the type of verification the package manager does .<br xmlns="">Having a corrupt official mirror can diffrent types of attacks<p />
+          <span class="threatTextType">Mitigation: </span>Veryfiying integrity at package manager</blockquote>
+        <div class="sectionSubTitle3">
+          Denial of Service
+        
+      (Threat #106)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>Mirror server can redirect package download to another server causing congestion at that server<p />
+          <span class="threatTextType">Mitigation: </span>Verifying size of packages at package manager level</blockquote>
+      </blockquote>
+      <div class="sectionSubTitle">Data Stores</div>
+      <div class="sectionSubTitle2">
+          Threats against Mirror Repositoy</div>
+      <blockquote>
+        <div />
+        <div class="sectionSubTitle3">Tampering
+      (Threat #97)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+        <div class="sectionSubTitle3">Repudiation
+      (Threat #98)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+        <div class="sectionSubTitle3">
+          Information Disclosure
+        
+      (Threat #99)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+        <div class="sectionSubTitle3">
+          Denial of Service
+        
+      (Threat #100)
+    </div>
+        <blockquote>
+          <span class="threatTextType">Threat: </span>
+          <p />
+          <span class="threatTextType">Mitigation: </span>
+        </blockquote>
+      </blockquote>
+    </div>
+    <div class="sectionTitle" id="_TocCertifications">Certifications</div>
+    <div class="sectionContent">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>User Alias</th>
+            <th>Element Name</th>
+            <th>Threat Type</th>
+            <th>Reason for certification</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>Tampering</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>InformationDisclosure</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>Tampering</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>InformationDisclosure</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>DenialOfService</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>Tampering</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>InformationDisclosure</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>DenialOfService</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>InformationDisclosure</td>
+          <td>mitigated elsewhere (provide a pointer)</td>
+          <td>Administrator of main repository must verify the offcial mirror </td>
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>Tampering</td>
+          <td>mitigated elsewhere (provide a pointer)</td>
+          <td>Administrator of main repository must verify the offcial mirror </td>
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>
+          </td>
+          <td>DenialOfService</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Download from mirror repo </td>
+          <td>InformationDisclosure</td>
+          <td>accepted risk (per bug bar)</td>
+          <td>Only data that can be discloed by mirror is the packages installed by a certain users</td>
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Package manager</td>
+          <td>Spoofing</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Package manager</td>
+          <td>Tampering</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Package manager</td>
+          <td>Repudiation</td>
+          <td>within a trust boundary</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Set-up 
+official 
+mirror server</td>
+          <td>Spoofing</td>
+          <td>mitigated elsewhere (provide a pointer)</td>
+          <td>Verification done by administrator of main repository</td>
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Set-up 
+official 
+mirror server</td>
+          <td>Repudiation</td>
+          <td>mitigated elsewhere (provide a pointer)</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Set-up 
+official 
+mirror server</td>
+          <td>InformationDisclosure</td>
+          <td>accepted risk (per bug bar)</td>
+          <td />
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Set-up 
+official 
+mirror server</td>
+          <td>DenialOfService</td>
+          <td>within a trust boundary</td>
+          <td>with mirror server </td>
+        </tr>
+        <tr>
+          <td>ponttec</td>
+          <td>Set-up 
+official 
+mirror server</td>
+          <td>ElevationOfPrivilege</td>
+          <td>within a trust boundary</td>
+          <td>with mirror server </td>
+        </tr>
+      </table>
+    </div>
+    <div class="sectionTitle" id="_Toc31961283">External Dependencies</div>
+    <div class="sectionContent">There are no external dependencies.</div>
+    <div class="sectionTitle" id="_Toc31961284">Implementation Assumptions</div>
+    <div class="sectionContent">There are no implementation assumptions.</div>
+    <div class="sectionTitle" id="_Toc31961285">External Security Notes</div>
+    <div class="sectionContent">There are no external security notes.</div>
+  </body>
+</html>
+
+------=_NextPart_60d87e53-da2a-45a9-9c45-44c3bd2f0a51--
