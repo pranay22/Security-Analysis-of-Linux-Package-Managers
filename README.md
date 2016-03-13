@@ -1,9 +1,11 @@
-# Security-Analysis-of-Linux-Package-Managers
-Secure Software Development Project - TU Darmstadt Winter 2015/16
+# Security-Analysis-of-Linux-Package-Managers   
+Secure Software Development - TU Darmstadt Winter 2015/16  
+Mini Project   
+
 
 *Decription:*  
 
-Completed on 10/03/2016.  
+Completed on: 10/03/2016.  
 Final report can be found in: /Final Report/project_activity.pdf  
 
 *Comtributors:*  
